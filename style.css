@@ -1,0 +1,277 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg, #FFB347, #FFCC33);
+
+    color: white;
+    overflow: hidden;
+}
+
+.hero{
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)), url(3.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.hero,
+.surprise{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.hidden{
+    display: none;
+}
+
+.hero h1{
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+.timebox{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.time{
+    background: rgba(255,255,255,0.25);
+    padding: 20px;
+    border-radius: 15px;
+    width: 100px;
+}
+
+.time h2{
+    font-size: 2.5rem;
+}
+
+button{
+    padding: 15px 40px;
+    border-radius: 30px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+button:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.message{
+    font-size: 1.4rem;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.from{
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.hearts span{
+    position: absolute;
+    bottom: -50px;
+    font-size: 24px;
+    animation: float 6s linear infinite;
+}
+
+.letter-box{
+    margin-top: 40px;
+    padding: 18px 40px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.letter-box:hover{
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.35);
+}
+
+.letter-popup{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.letter-content{
+    background: #fff;
+    color: #333;
+    width: 80%;
+    max-width: 700px;
+    max-height: 80vh;
+    padding: 40px;
+    border-radius: 25px;
+    overflow-y: auto;
+    position: relative;
+    animation: fadeUp 0.4s ease;
+}
+
+.close-btn{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.letter-content h2{
+    text-align: center;
+    color: #ff4f7a;
+    margin-bottom: 20px;
+}
+
+.letter-text p{
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.letter-content::-webkit-scrollbar{
+    width: 6px;
+}
+
+.letter-content::-webkit-scrollbar-thumb{
+    background: #ff7aa2;
+    border-radius: 10px;
+}
+
+.animated-button{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 16px 36px;
+    border: 4px solid transparent;
+    font-size: 16px;
+    background: transparent;
+    border-radius: 100px;
+    font-weight: 600;
+    color: white;
+    box-shadow: 0 0 0 2px white;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    margin-top: 40px;
+}
+
+.animated-button svg{
+    position: absolute;
+    width: 24px;
+    fill: white;
+    z-index: 9;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1{
+    right: 16px;
+}
+
+.animated-button .arr-2{
+    left: -25%;
+}
+
+.animated-button .circle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text{
+    position: relative;
+    z-index: 1;
+    transform: translateX(-12px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover{
+    box-shadow: 0 0 0 12px transparent;
+    color: #ff4f7a;
+    border-radius: 12px;
+}
+
+.animated-button:hover .arr-1{
+    right: -25%;
+}
+
+.animated-button:hover .arr-2{
+    left: 16px;
+}
+
+.animated-button:hover .text{
+    transform: translateX(12px);
+}
+
+.animated-button:hover svg{
+    fill: #ff4f7a;
+}
+
+.animated-button:active{
+    scale: 0.95;
+}
+
+.animated-button:hover .circle{
+    width: 220px;
+    height: 220px;
+    opacity: 1;
+}
+
+.animated-button{
+    text-decoration: none;
+}
+
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeUp{
+    from{
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes float{
+    0%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
